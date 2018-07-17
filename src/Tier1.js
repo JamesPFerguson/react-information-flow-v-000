@@ -14,6 +14,23 @@ export default class Tier1 extends Component {
     }
   }
 
+  handleClick = () => {
+    const nextColor = getRandomColor()
+    this.setState({
+      color: nextColor,
+      childColor: getReducedColor(nextColor)
+    });
+  }
+
+  handleTierTwoClick = (event) => {
+    event.stopPropagation();
+    const placeholderColor = getRandomColor()
+    this.setState({
+      childColor: getReducedColor(placeholderColor)
+    });
+  }
+
+
   render() {
     // hard coded color values have been added below, though they won't be
     // present in our solution. What should they be replaced with?
